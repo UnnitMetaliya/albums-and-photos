@@ -4,10 +4,13 @@
   "private": true,
   "homepage": "https://unnitmetaliya.github.io/albums-and-photos",
   "dependencies": {
+    "@babel/runtime": "^7.4.5",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.87.1"
   },
   "scripts": {
     "start": "react-scripts start",
