@@ -46,7 +46,7 @@ const friendOptions = [
 const UserSelection = () => (
   <div className="User-selection">
     <Dropdown placeholder="Select User" selection options={friendOptions} />
-    <Button>OK!</Button>
+    <Button color="green">Get Albums</Button>
   </div>
 );
 
