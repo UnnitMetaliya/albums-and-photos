@@ -45,9 +45,25 @@ class UserSelection extends Component {
           value: "Justen Kitsune",
           image: { avatar: true, src: "https://via.placeholder.com/150/92c952" }
         }
-      ]
+      ],
+
+      users: []
     };
   }
+
+  componentDidMount() {
+    const url = "https://jsonplaceholder.typicode.com/users";
+    fetch(url)
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({ users: responseJson });
+        console.log(this.state.users);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <div className="User-selection">
