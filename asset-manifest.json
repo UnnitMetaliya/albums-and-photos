@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/albums-and-photos/static/css/main.eb1cf629.chunk.css",
-    "main.js": "/albums-and-photos/static/js/main.3d7a3e20.chunk.js",
-    "main.js.map": "/albums-and-photos/static/js/main.3d7a3e20.chunk.js.map",
+    "main.css": "/albums-and-photos/static/css/main.b7113950.chunk.css",
+    "main.js": "/albums-and-photos/static/js/main.c6fa12ce.chunk.js",
+    "main.js.map": "/albums-and-photos/static/js/main.c6fa12ce.chunk.js.map",
     "runtime~main.js": "/albums-and-photos/static/js/runtime~main.75273de4.js",
     "runtime~main.js.map": "/albums-and-photos/static/js/runtime~main.75273de4.js.map",
-    "static/css/2.905c9439.chunk.css": "/albums-and-photos/static/css/2.905c9439.chunk.css",
-    "static/js/2.6638f6b9.chunk.js": "/albums-and-photos/static/js/2.6638f6b9.chunk.js",
-    "static/js/2.6638f6b9.chunk.js.map": "/albums-and-photos/static/js/2.6638f6b9.chunk.js.map",
+    "static/css/2.681464ad.chunk.css": "/albums-and-photos/static/css/2.681464ad.chunk.css",
+    "static/js/2.fd943e4d.chunk.js": "/albums-and-photos/static/js/2.fd943e4d.chunk.js",
+    "static/js/2.fd943e4d.chunk.js.map": "/albums-and-photos/static/js/2.fd943e4d.chunk.js.map",
     "index.html": "/albums-and-photos/index.html",
-    "precache-manifest.bc107383af535bfe40682377bf91ba61.js": "/albums-and-photos/precache-manifest.bc107383af535bfe40682377bf91ba61.js",
+    "precache-manifest.a45615c4011dded924edd1130e039e64.js": "/albums-and-photos/precache-manifest.a45615c4011dded924edd1130e039e64.js",
     "service-worker.js": "/albums-and-photos/service-worker.js",
-    "static/css/2.905c9439.chunk.css.map": "/albums-and-photos/static/css/2.905c9439.chunk.css.map",
-    "static/css/main.eb1cf629.chunk.css.map": "/albums-and-photos/static/css/main.eb1cf629.chunk.css.map",
+    "static/css/2.681464ad.chunk.css.map": "/albums-and-photos/static/css/2.681464ad.chunk.css.map",
+    "static/css/main.b7113950.chunk.css.map": "/albums-and-photos/static/css/main.b7113950.chunk.css.map",
     "static/media/semantic.min.css": "/albums-and-photos/static/media/outline-icons.ef60a4f6.woff"
   }
 }
