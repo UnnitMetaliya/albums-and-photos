@@ -5,6 +5,7 @@
   "homepage": "https://unnitmetaliya.github.io/albums-and-photos",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
+    "antd": "^3.19.1",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
