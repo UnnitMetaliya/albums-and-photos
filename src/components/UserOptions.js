@@ -10,6 +10,7 @@ class UserOptions extends Component {
       userAlbums: []
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleAlbumClick = this.handleAlbumClick.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +28,7 @@ class UserOptions extends Component {
 
   handleChange = userID => {
     console.log(`selected ${userID}`);
+    this.setState({ selectedUserInfo: userID });
     const albumUrl =
       "https://jsonplaceholder.typicode.com/albums?userId=" + userID;
 
@@ -42,15 +44,14 @@ class UserOptions extends Component {
     console.log(albumUrl);
   };
 
+  handleAlbumClick = albumID => {
+    alert("You clicked on album no:" + albumID);
+  };
+
   render() {
     let { Option } = Select;
-    let gridStyle = {
-      width: "25%",
-      textAlign: "center"
-    };
-
     return (
-      <div>
+      <div className="User-selection">
         <Select
           defaultValue="Select User"
           style={{ width: 220 }}
@@ -60,11 +61,12 @@ class UserOptions extends Component {
             <Option key={user.id}>{user.name}</Option>
           ))}
         </Select>
-        <div>{this.state.selectedUserInfo}</div>
-        <div>
-          <Card title="Displaying">
+        <div className="User-albums">
+          <Card>
             {this.state.userAlbums.map(album => (
-              <Card.Grid style={gridStyle}>{album.title}</Card.Grid>
+              <Card.Grid key={album.id} onClick={this.handleAlbumClick}>
+                {album.title}
+              </Card.Grid>
             ))}
           </Card>
         </div>
