@@ -65,13 +65,12 @@ class UserSelection extends Component {
   }
 
   render() {
+    let optionItems = this.state.users.map(user => (
+      <option key={user.username}>{user.username}</option>
+    ));
     return (
       <div className="User-selection">
-        <Dropdown
-          placeholder="Select User"
-          selection
-          options={this.state.friendOptions}
-        />
+        <Dropdown placeholder="Select User" selection options={optionItems} />
         <Button color="green">Get Albums</Button>
       </div>
     );
