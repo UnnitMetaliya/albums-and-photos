@@ -44,8 +44,8 @@ class UserOptions extends Component {
     console.log(albumUrl);
   };
 
-  handleAlbumClick = albumID => {
-    alert("You clicked on album no:" + albumID);
+  handleAlbumClick = index => {
+    console.log(index);
   };
 
   render() {
@@ -62,15 +62,6 @@ class UserOptions extends Component {
               <Option key={user.id}>{user.name}</Option>
             ))}
           </Select>
-          {/* <div className="User-albums">
-            <Card>
-              {this.state.userAlbums.map(album => (
-                <Card.Grid key={album.id} onClick={this.handleAlbumClick}>
-                  {album.title}
-                </Card.Grid>
-              ))}
-            </Card>
-          </div> */}
         </div>
         <div className="User-albums-list">
           <List
@@ -83,13 +74,19 @@ class UserOptions extends Component {
               xl: 2,
               xxl: 3
             }}
-            dataSource={this.state.userAlbums}
-            renderItem={item => (
-              <List.Item>
-                <Card title={`Album # - ` + item.id}>{item.title}</Card>
+          >
+            {this.state.userAlbums.map((album, index) => (
+              <List.Item key={album.id}>
+                <Card
+                  className="Album-card"
+                  title={`Album # - ` + album.id}
+                  onClick={() => this.handleAlbumClick(index)}
+                >
+                  {album.title}
+                </Card>
               </List.Item>
-            )}
-          />
+            ))}
+          </List>
         </div>
       </div>
     );
