@@ -7,7 +7,8 @@ class PhotoAlbums extends Component {
     this.state = {
       users: [],
       selectedUserInfo: [],
-      userAlbums: []
+      userAlbums: [],
+      albumPhotos: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAlbumClick = this.handleAlbumClick.bind(this);
@@ -28,7 +29,7 @@ class PhotoAlbums extends Component {
 
   handleChange = userID => {
     console.log(`selected ${userID}`);
-    this.setState({ selectedUserInfo: userID.name });
+    this.setState({ selectedUserInfo: userID });
     const albumUrl =
       "https://jsonplaceholder.typicode.com/albums?userId=" + userID;
 
@@ -46,6 +47,18 @@ class PhotoAlbums extends Component {
 
   handleAlbumClick = index => {
     console.log(index);
+    const photosUrl =
+      "https://jsonplaceholder.typicode.com/photos?albumId=" + index;
+
+    fetch(photosUrl)
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({ photosUrl: responseJson });
+        console.log(this.state.photosUrl);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   render() {
