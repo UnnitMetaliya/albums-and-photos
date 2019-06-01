@@ -20,6 +20,7 @@ class PhotoAlbums extends Component {
       .then(response => response.json())
       .then(responseJson => {
         this.setState({ users: responseJson });
+        console.log("Test - Retriving list of users on component did mount.");
         console.log(this.state.users);
       })
       .catch(error => {
@@ -28,7 +29,6 @@ class PhotoAlbums extends Component {
   }
 
   handleChange = userID => {
-    console.log(`selected ${userID}`);
     this.setState({ selectedUserInfo: userID });
     const albumUrl =
       "https://jsonplaceholder.typicode.com/albums?userId=" + userID;
@@ -37,24 +37,31 @@ class PhotoAlbums extends Component {
       .then(response => response.json())
       .then(responseJson => {
         this.setState({ userAlbums: responseJson });
+        console.log("Test - Retrive Albums for selected users.");
+        console.log("Album URL");
+        console.log(albumUrl);
+        console.log("Albums");
         console.log(this.state.userAlbums);
       })
       .catch(error => {
         console.log(error);
       });
-    console.log(albumUrl);
   };
 
-  handleAlbumClick = index => {
-    console.log(index);
+  handleAlbumClick = (albumId, index) => {
+    console.log("Test - Displaying albumId # of album clicked.");
+    console.log(albumId);
+    // this.setState({ userAlbums: [] });
     const photosUrl =
-      "https://jsonplaceholder.typicode.com/photos?albumId=" + index;
+      "https://jsonplaceholder.typicode.com/photos?albumId=" + albumId;
+
+    console.log(photosUrl);
 
     fetch(photosUrl)
       .then(response => response.json())
       .then(responseJson => {
-        this.setState({ photosUrl: responseJson });
-        console.log(this.state.photosUrl);
+        this.setState({ albumPhotos: responseJson });
+        console.log(this.state.albumPhotos);
       })
       .catch(error => {
         console.log(error);
@@ -86,15 +93,15 @@ class PhotoAlbums extends Component {
               md: 4,
               lg: 4,
               xl: 2,
-              xxl: 3
+              xxl: 2
             }}
           >
             {this.state.userAlbums.map((album, index) => (
-              <List.Item key={album.id}>
+              <List.Item key={album.id} id={album.id}>
                 <Card
                   className="Album-card"
-                  title={`Album # - ` + album.id}
-                  onClick={() => this.handleAlbumClick(index)}
+                  title={`Album #` + album.id}
+                  onClick={() => this.handleAlbumClick(album.id)}
                 >
                   {album.title}
                 </Card>
