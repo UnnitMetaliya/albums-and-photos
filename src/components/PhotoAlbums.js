@@ -96,7 +96,7 @@ class PhotoAlbums extends Component {
               xxl: 2
             }}
           >
-            {this.state.userAlbums.map(album => (
+            {this.state.userAlbums.map((album, index) => (
               <List.Item key={album.id} id={album.id}>
                 <Card
                   className="Album-card"
@@ -109,7 +109,34 @@ class PhotoAlbums extends Component {
             ))}
           </List>
         </div>
-        <div className="Album-photos" />
+        <div className="Album-photos">
+          <div className="grid">
+            <div className="cell">
+              <img
+                src="http://placehold.it/800x800"
+                className="responsive-image"
+              />
+            </div>
+            <div className="cell">
+              <img
+                src="http://placehold.it/800x800"
+                className="responsive-image"
+              />
+            </div>
+            <div className="cell">
+              <img
+                src="http://placehold.it/800x800"
+                className="responsive-image"
+              />
+            </div>
+            <div className="cell">
+              <img
+                src="http://placehold.it/800x800"
+                className="responsive-image"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
