@@ -96,7 +96,7 @@ class PhotoAlbums extends Component {
               xxl: 2
             }}
           >
-            {this.state.userAlbums.map((album, index) => (
+            {this.state.userAlbums.map(album => (
               <List.Item key={album.id} id={album.id}>
                 <Card
                   className="Album-card"
@@ -109,6 +109,7 @@ class PhotoAlbums extends Component {
             ))}
           </List>
         </div>
+        <div className="Album-photos" />
       </div>
     );
   }
