@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Select, Card, List } from "antd";
 
-class UserOptions extends Component {
+class PhotoAlbums extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,7 @@ class UserOptions extends Component {
 
   handleChange = userID => {
     console.log(`selected ${userID}`);
-    this.setState({ selectedUserInfo: userID });
+    this.setState({ selectedUserInfo: userID.name });
     const albumUrl =
       "https://jsonplaceholder.typicode.com/albums?userId=" + userID;
 
@@ -64,6 +64,7 @@ class UserOptions extends Component {
           </Select>
         </div>
         <div className="User-albums-list">
+          <h2>{this.state.selectedUserInfo}</h2>
           <List
             grid={{
               gutter: 16,
@@ -93,4 +94,4 @@ class UserOptions extends Component {
   }
 }
 
-export default UserOptions;
+export default PhotoAlbums;

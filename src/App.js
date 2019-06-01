@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import UserOptions from "./components/UserOptions";
+import PhotoAlbums from "./components/PhotoAlbums";
 
 function App() {
   return (
     <div className="App">
       <h1>Albums & Photos</h1>
-      <UserOptions />
+      <PhotoAlbums />
     </div>
   );
 }
