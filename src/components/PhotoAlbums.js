@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Select, Card, List } from "antd";
+import { Select } from "antd";
 
 class PhotoAlbums extends Component {
   constructor(props) {
@@ -70,6 +70,25 @@ class PhotoAlbums extends Component {
 
   render() {
     let { Option } = Select;
+    let albumOptions;
+    if (this.state.userAlbums.length > 0) {
+      albumOptions = (
+        <div className="User-albums-dropdown">
+          <h2>Ok! Now Select Album You Want To See!</h2>
+          <Select
+            defaultValue="Select Album"
+            style={{ width: 520 }}
+            onChange={this.handleAlbumClick}
+          >
+            {this.state.userAlbums.map(album => (
+              <Option key={album.id}>
+                {"Album # - " + album.id + " " + album.title}
+              </Option>
+            ))}
+          </Select>
+        </div>
+      );
+    }
     return (
       <div className="container">
         <div className="User-selection">
@@ -83,59 +102,15 @@ class PhotoAlbums extends Component {
             ))}
           </Select>
         </div>
-        <div className="User-albums-list">
-          <h2>{this.state.selectedUserInfo}</h2>
-          <List
-            grid={{
-              gutter: 16,
-              xs: 1,
-              sm: 2,
-              md: 4,
-              lg: 4,
-              xl: 2,
-              xxl: 2
-            }}
-          >
-            {this.state.userAlbums.map((album, index) => (
-              <List.Item key={album.id} id={album.id}>
-                <Card
-                  className="Album-card"
-                  title={`Album #` + album.id}
-                  onClick={() => this.handleAlbumClick(album.id)}
-                >
-                  {album.title}
-                </Card>
-              </List.Item>
-            ))}
-          </List>
-        </div>
-        <div className="Album-photos">
-          <div className="grid">
-            <div className="cell">
-              <img
-                src="http://placehold.it/800x800"
-                className="responsive-image"
-              />
-            </div>
-            <div className="cell">
-              <img
-                src="http://placehold.it/800x800"
-                className="responsive-image"
-              />
-            </div>
-            <div className="cell">
-              <img
-                src="http://placehold.it/800x800"
-                className="responsive-image"
-              />
-            </div>
-            <div className="cell">
-              <img
-                src="http://placehold.it/800x800"
-                className="responsive-image"
-              />
-            </div>
-          </div>
+        {albumOptions}
+        <div className="responsiveGrid">
+          {this.state.albumPhotos.map(photo => (
+            <a href={photo.url}>
+              <figure>
+                <img src={photo.url} alt="" />
+              </figure>
+            </a>
+          ))}
         </div>
       </div>
     );
